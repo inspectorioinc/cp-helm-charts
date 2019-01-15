@@ -95,7 +95,7 @@ affinity: {}
 
 ## Taints to tolerate on node assignment:
 ## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-tolerations: {}
+tolerations: []
 
 ## Monitoring
 ## Zookeeper JMX Settings
