@@ -65,6 +65,11 @@ spec:
             {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
+          volumeMounts:
+          - name: kafka-connect-credentials
+            mountPath: /data/credentials.properties
+            subPath: credentials.properties
+            readOnly: true
           env:
             - name: CONNECT_REST_ADVERTISED_HOST_NAME
               valueFrom:
@@ -108,6 +113,9 @@ spec:
         configMap:
           name: {{ template "cp-kafka-connect.fullname" . }}-jmx-configmap
       {{- end }}
+      - name: kafka-connect-credentials
+        configMap:
+          name: {{ template "cp-kafka-connect.fullname" . }}-credentials
       {{- if .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}

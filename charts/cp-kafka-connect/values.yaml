@@ -33,6 +33,12 @@ configurationOverrides:
   "config.storage.replication.factor": "3"
   "offset.storage.replication.factor": "3"
   "status.storage.replication.factor": "3"
+  # "config.providers": "file"
+  # "config.providers.file.class": "org.apache.kafka.common.config.provider.FileConfigProvider"
+
+## Kafka Connect credentials configuration
+credentials: |
+
 
 ## Kafka Connect JVM Heap Option
 heapOptions: "-Xms512M -Xmx512M"
