@@ -15,6 +15,8 @@ spec:
       release: {{ .Release.Name }}
   template:
     metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       labels:
         app: {{ template "cp-kafka-connect.name" . }}
         release: {{ .Release.Name }}
